@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Register{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-6" id="register_form">
+                <h1 align="center">SIGN UP</h1>
+                <form action="register" method="POST">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <p>
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% comment %} {% if field.help_text %}
+                            <small style="color: grey">{{ field.help_text }}</small>
+                            {% endif %} {% endcomment %}
+                            {% for error in field.errors %}
+                            <p style="color: red">{{ error }}</p>
+                            {% endfor %}
+                        </p>
+                    {% endfor %}
+                    <input type="submit" value="SIGNUP ">
+                </form>
+                {% for message in messages %} {{message}} {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <br>
+{% endblock content %}
+

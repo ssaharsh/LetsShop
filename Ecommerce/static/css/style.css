@@ -1,0 +1,95 @@
+.navbar {
+    background-color: beige!important;
+}
+
+.nav-link {
+    color: #ba1414 !important;
+    font-weight: bold;
+}
+
+body>nav>div>a {
+    color: #ba1414 !important;
+    font-weight: bold;
+}
+
+footer {
+    position: sticky;
+    width: 100%;
+}
+
+.footer {
+    /* left: 0;
+    bottom: 0;
+    width: 100%; */
+    padding-top: 10px;
+    color: #ba1414;
+    background-color: beige!important;
+}
+
+.fa {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    width: 35px;
+    text-decoration: none;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-instagram {
+    background-image: linear-gradient(180deg, #4c68d7, #8a3ab9, #bc2a8d, #cd486b, #e95950, #fbad50, #fccc63);
+    color: white;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+#login_form {
+    width: fit-content;
+    padding: 10px;
+    background-color: beige;
+    color: #ba1414;
+    margin-top: 7% !important;
+    border-radius: 5%;
+    vertical-align: middle;
+}
+
+#register_form {
+    width: fit-content;
+    padding: 10px;
+    background-color: beige;
+    color: #ba1414;
+    margin-top: 2%;
+    border-radius: 5%;
+}
+
+#login {
+    height: max-content;
+}
+
+/* .row {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  } */
+/* .row > [class*='col-'] {
+    display:flex;
+    flex-direction: column;
+  } */
+
+  #product_card{
+    border:4px solid #f5f5dc;
+    border-radius:5px;
+    padding: 10px 0 10px 0;
+    height:100%;
+    width: auto;
+  }
+

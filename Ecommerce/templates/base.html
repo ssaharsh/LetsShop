@@ -1,0 +1,115 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>{% block title %}Home{% endblock title %}</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src={% static 'images/logoLS.png' %} height="45px" width="45px" alt=""> Let's SHOP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href={% url 'home' %}>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href={% url 'showCart' %}>Cart</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href={% url 'logout' %}>Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <span><a class="nav-link" aria-current="page" href={% url 'login' %}>Login</a></span>
+                    </li>
+                    <li>
+                        <span><a class="nav-link" aria-current="page" href= {% url 'register' %}>Register</a></span>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %} {% endblock content %}
+
+    <div>
+        <footer style="">
+    <div id="footer" class="container-fluid">
+        <div class="row footer" style="text-align: center;">
+            <div class="col-lg-4 col-md-6" style="margin-bottom:10px;">
+                <h3 style="margin-bottom: 10px;">Let Us Know</h3>
+                <form action="#">
+                    <input type="email" name="subemail" style="margin-bottom: 10px;"><br>
+                    <button type="submit" style="width: 80px;">Email Us</button>
+                </form>
+
+            </div>
+            <div class="col-lg-4 col-md-6" style="margin-bottom:10px;">
+                <h3 style="margin-bottom: 10px; ">Contact Us</h3>
+                <ul style="list-style-type:none;">
+                    <li style="margin-bottom: 12px;">
+                        <b>Contact:</b> +91-6265421690
+                    </li>
+                    <li>
+                        <b>E-mail:</b> <a href="mailto:saharhsodani2000@gmail.com " style="text-decoration: none;">saharshsodani2000@gmail.com</a>
+                    </li>
+                </ul>
+
+
+            </div>
+            <div class="col-lg-4 col-md-12" style="margin-bottom:10px;">
+                <h3 style="margin-bottom: 10px; ">Connect With Us</h3>
+                <ul style="list-style-type:none; text-align:center ">
+                    <li style="text-align: center; ">
+                        <a class="fa fa-facebook fa-lg " href="https://www.facebook.com/"></a><span style="margin-left: 10px; ">Facebook</span>
+                    </li>
+                    <li>
+                        <a class="fa fa-instagram fa-lg " href="https://www.instagram.com/"></a><span style="margin-left: 10px; ">Instagram</span>
+                    </li>
+                    <li>
+                        <a class="fa fa-linkedin fa-lg " href="#"></a><span style="margin-left: 10px; ">Linked-In</span>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</footer>
+    </div>
+
+</body>
+
+
+<!-- <script>
+    var updateBtns = document.getElementsByClassName('update-cart')
+
+for(var i=0; i<updateBtns.length; i++){
+    updateBtns[i].addEventListener('click',function(){
+        var productId = this.dataset.product
+        var action = this.dataset.action
+        console.log('pId:',productId,'action:',action);
+    })
+}
+</script> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+<script src={% static 'js/cart.js' %}></script>
+</html>

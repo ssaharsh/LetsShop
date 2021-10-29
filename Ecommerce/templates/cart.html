@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        {% for product in products %}
+            {% if product.productdetail.Category == 'Mobile' %}
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" style="margin-top:25px; margin-bottom:25px; text-align:center;">
+                    <div id="product_card">
+                        <div>
+                            <img width="100px" height="200px" src="{{product.productdetail.Image.url}}" alt="">
+                        </div>
+                           
+                        <h5>{{product.productdetail.Name}}</h5>
+                        <div style="text-align:left">
+                            <ul style="list-style-type: none;">
+                                <li>{{product.productdetail.Category}}</li>
+                                <li>Rs. {{product.productdetail.Price}}</li>
+                                <li style="margin-bottom: 8px;">Quantity:{{product.productquantity}}</li>
+                                <li>
+                                    <form action="deleteFromCart" method='POST'>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="productid" value="{{product.productdetail.id}}"/>
+                                        <button
+                                            class="btn update-cart"
+                                            style="background-color: #ba1414; color:white;">Delete</button>
+                                    </form>        
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+               
+                </div>
+            {% endif %}
+            {% if product.productdetail.Category == 'Laptop' %}
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" style="margin-top:25px; margin-bottom:25px; text-align:center;">
+                    <div id="product_card">
+                        <div>
+                            <img width="275px" height="180px" src="{{product.productdetail.Image.url}}" alt=""><br>
+                        </div>
+                        
+                        <h5>{{product.productdetail.Name}}</h5>
+                        <div style="text-align:left">
+                            <ul style="list-style-type: none;">
+                                <li>{{product.productdetail.Category}}</li>
+                                <li>Rs. {{product.productdetail.Price}}</li>
+                                <li style="margin-bottom: 8px;">Quantity:{{product.productquantity}}</li>
+                                <li>
+                                    <form action="deleteFromCart" method='POST'>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="productid" value="{{product.productdetail.id}}"/>
+                                        <button
+                                            class="btn update-cart"
+                                            style="background-color: #ba1414; color:white;">Delete</button>
+                                    </form>
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            {% endif %}
+            {% if product.productdetail.Category == 'Electronics' %}
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" style="margin-top:25px; margin-bottom:25px; text-align:center;">
+                    <div id="product_card">
+                        <div>
+                            <img width="150px" height="200px" src="{{product.productdetail.Image.url}}" alt=""><br>
+                        </div>
+                        
+                        <h5>{{product.productdetail.Name}}</h5>
+                        <div style="text-align:left">
+                            <ul style="list-style-type: none;">
+                                <li>{{product.productdetail.Category}}</li>
+                                <li>Rs. {{product.productdetail.Price}}</li>
+                                <li style="margin-bottom: 8px;">Quantity:{{product.productquantity}}</li>
+                                <li>
+                                    <form action="deleteFromCart" method='POST'>
+                                        {% csrf_token %}
+                                        <input type="hidden" name="productid" value="{{product.productdetail.id}}"/>
+                                        <button
+                                            class="btn update-cart"
+                                            style="background-color: #ba1414; color:white;">Delete</button>
+                                    </form>
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            
+
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock content %}
